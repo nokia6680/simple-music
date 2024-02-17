@@ -1,0 +1,46 @@
+@keyframes rotateR {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    100% {
+        transform: rotateZ(359deg);
+    }
+}
+
+
+@keyframes dash {
+    50% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: var(--pathLength);
+    }
+}
+
+// @keyframes dashReverse {
+//     to {
+//         stroke-dashoffset: calc(var(--pathLength) * 2);
+//     }
+// }
+
+// @keyframes undash {
+//     from {
+//         stroke-dashoffset: 0;
+//     }
+
+//     to {
+//         stroke-dashoffset: var(--pathLength);
+//     }
+// }
+
+// @keyframes undashReverse {
+//     from {
+//         stroke-dashoffset: calc(var(--pathLength) * 2);
+//     }
+
+//     to {
+//         stroke-dashoffset: var(--pathLength);
+//     }
+// }

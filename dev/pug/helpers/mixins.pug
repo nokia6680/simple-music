@@ -1,0 +1,19 @@
+mixin partnerItem(category, type, icon, title, subtitle, preview, link, image)
+    li(data-categories="" +category class="partners__item " +type)
+        .partners__info
+            picture.partners__logo
+                source(srcset="static/images/content/" +icon +".webp 1x, static/images/content/" +icon +"_2x.webp 2x" type="image/webp")
+                img(src="static/images/content/" +icon +"_2x.png" width="" height="" alt="").partners__logo-image
+            h3.partners__name=title
+            b.partners__subtitle!=subtitle
+            p.partners__preview!=preview
+        if type
+            picture.partners__frame
+                source(srcset="static/images/content/" +image +".webp 1x, static/images/content/" +image +"_2x.webp 2x" type="image/webp")
+                img(src="static/images/content/" +image width="" height="" alt="").partners__frame-image
+        .partners__bottom
+            button(type="button").partners__expand Подробнее
+            a(href="" +link target="_blank").partners__link 
+                span На сайт
+                svg
+                    use(xlink:href="static/images/sprite/symbol/sprite.svg#arrow-right")
