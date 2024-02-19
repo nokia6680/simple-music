@@ -10,5 +10,6 @@
   }
 }
 
-@include font-face('GraphikLCG', '../fonts/GraphikLCG-Regular', 400, 'normal');
-@include font-face('GraphikLCG', '../fonts/GraphikLCG-Medium', 500, 'normal');
+@include font-face('Geometria', '../fonts/Geometria/Geometria', 400, 'normal');
+@include font-face('Geometria', '../fonts/Geometria/Geometria-Medium', 500, 'normal');
+@include font-face('Geometria', '../fonts/Geometria/Geometria-Bold', 700, 'normal');
