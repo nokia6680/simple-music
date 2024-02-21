@@ -1,0 +1,114 @@
+.content {
+    width: 100%;
+
+    @include flex-setting(column, flex-start, center);
+    margin-bottom: toRem(60);
+
+    gap: toRem(44);
+    overflow: hidden;
+
+    &__item {
+        position: relative;
+        @include flex-setting(column-reverse, flex-start, center);
+        width: 100%;
+        padding: 0 toRem(30);
+        gap: toRem(32);
+    }
+
+    &__frame {
+        position: relative;
+
+        iframe {
+            background-color: transparent;
+            z-index: 2;
+            position: relative;
+        }
+
+        &::after,
+        &::before {
+            position: absolute;
+            content: '';
+            z-index: 0;
+            width: toRem(200);
+            height: toRem(200);
+            border-radius: 100vh;
+            filter: blur(100px);
+        }
+
+        &::before {
+            background-color: #E5007E;
+        }
+
+        &::after {
+            background-color: #0E0258;
+        }
+    }
+
+    &__info {
+        width: 100%;
+        @include flex-setting(column, flex-start, center);
+        gap: toRem(24);
+    }
+
+    &__name {
+        @include font-setting($primary-font, toRem(17), 120%, 500, #E5007E);
+    }
+
+    &__about {
+        @include font-setting($primary-font, toRem(17), 120%, 400, #3A3A3A);
+        text-align: center;
+    }
+}
+
+@include min-screen(1280px) {
+    .content {
+        padding-top: toRem(76);
+        margin-bottom: toRem(140);
+        gap: toRem(140);
+    
+        &__item {
+            display: grid;
+            grid-template-columns: toRem(620) 1fr;
+            justify-content: center;
+            align-items: center;
+            padding: 0 calc((100% - 1140px) / 2);
+            column-gap: toRem(60);
+
+            &:nth-of-type(2) {
+                grid-template-columns: 1fr toRem(620);
+
+                .content__frame {
+                    grid-column: 2 / 3;
+                    grid-row: 1 / 2;
+                }
+            
+                .content__info {
+                    grid-column: 1 / 2;
+                    grid-row: 1 / 2;
+                }
+
+                .content__name {
+                    color: #2A3070;
+                }
+            }
+        }
+
+        &__frame {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+    
+        &__info {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+    
+        &__name {
+            font-size: toRem(19);
+        }
+    
+        &__about {
+            font-size: toRem(19);
+        }
+    }
+}

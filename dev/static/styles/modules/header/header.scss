@@ -1,0 +1,54 @@
+.header {
+    width: 100%;
+    @include flex-setting(row, space-between, center);
+
+    padding: toRem(19) toRem(24);
+    background-color: $white;
+
+    &__link {
+        @include flex-setting(column, center, center);
+        width: toRem(72);
+        height: toRem(27);
+
+        &-logo {
+            width: inherit;
+            height: inherit;
+            object-fit: contain;
+        }
+    }
+
+    &__btn {
+        width: auto;
+        @include flex-setting(row, center, center);
+        gap: toRem(12);
+        padding: toRem(12) toRem(30);
+        background: linear-gradient(98.02deg, #E5007E -7.32%, #2A3070 123.76%);
+        border: none;
+        border-radius: toRem(16);
+        @include font-setting($primary-font, toRem(12), 120%, 500, $white);
+
+        &-icon {
+            width: toRem(16);
+            height: toRem(18);
+            fill: $white;
+        }
+    }
+}
+
+@include min-screen(1280px) {
+    .header {
+        position: relative;
+        justify-content: center;
+        padding: toRem(26) 0 toRem(27) 0;
+        box-shadow: 0 -6px 35px 0 rgba(229, 0, 126, 0.1);
+    
+        &__btn {
+            position: absolute;
+            top: 50%;
+            right: calc((100% - 1140px) / 2);
+            transform: translateY(-50%);
+            padding: toRem(12) toRem(55);
+            font-size: toRem(14);
+        }
+    }
+}

@@ -1,0 +1,120 @@
+.footer {
+    width: 100%;
+    @include flex-setting(column, flex-start, center);
+
+    padding: toRem(60) 0;
+    background-color: #F9F9F7;
+
+    &__title {
+        position: relative;
+        @include font-setting($primary-font, toRem(16), 120%, 500, #2A3070);
+        text-align: center;
+        margin-bottom: toRem(32);
+
+        &::after,
+        &::before {
+            position: absolute;
+            content: '';
+
+            width: toRem(80);
+            height: toRem(1);
+            background: linear-gradient(94.98deg, rgba(229, 0, 126, 0.3) 1.05%, #2A3070 33.42%, #2A3070 81.06%, rgba(229, 0, 126, 0.3) 129.19%);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &::before {
+            left: toRem(-100);
+        }
+
+        &::after {
+            transform: translateY(-50%) scaleX(-1);
+            right: toRem(-100);
+        }
+    }
+
+    &__list {
+        padding: 0 toRem(30);
+        scroll-snap-type: x mandatory;
+        width: 100%;
+
+        @include flex-setting(row, flex-start, flex-end);
+        margin-bottom: toRem(0);
+        gap: toRem(70);
+        z-index: 0;
+        overflow-x: auto;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__item {
+        scroll-snap-align: center;
+        height: auto;
+
+        &:first-of-type {
+            min-width: toRem(135);
+            max-width: toRem(135);
+        }
+
+        &:nth-of-type(2) {
+            min-width: toRem(176);
+            max-width: toRem(176);
+        }
+
+        &:nth-of-type(3) {
+            min-width: toRem(152);
+            max-width: toRem(152);
+        }
+
+        &:last-of-type {
+            min-width: toRem(157);
+            max-width: toRem(157);
+        }
+    }
+
+    &__link {
+        @include flex-setting(column, flex-start, flex-start);
+        gap: toRem(16);
+        text-decoration: none;
+    }
+
+    &__about {
+        @include font-setting($primary-font, toRem(14), 120%, 400, #3A3A3A);
+        text-align: left;
+    }
+}
+
+@include min-screen(1280px) {
+    .footer {  
+        padding: toRem(70) calc((100% - 1140px) / 2);
+    
+        &__title {
+            font-size: toRem(18);
+            margin-bottom: toRem(44);
+
+            &::after,
+            &::before {
+                width: toRem(490);
+            }
+
+            &::before {
+                left: toRem(-500);
+            }
+
+            &::after {
+                right: toRem(-500);
+            }
+        }
+    
+        &__list {
+            padding: 0;
+            justify-content: space-between;
+            gap: 0;
+        }
+    }
+}

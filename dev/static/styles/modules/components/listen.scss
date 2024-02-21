@@ -1,0 +1,53 @@
+.listen {
+    width: 100%;
+    @include flex-setting(column, flex-start, center);
+
+    padding: toRem(52) 0;
+
+    &__title {
+        @include font-setting($primary-font, toRem(32), 120%, 500, #2A3070);
+        text-align: center;
+        margin-bottom: toRem(32);
+    }
+
+    &__about {
+        @include font-setting($primary-font, toRem(16), 120%, 400, #000000);
+        text-align: center;
+        width: 100%;
+        max-width: calc(100% - 16.6667%);
+        margin-bottom: toRem(32);
+    }
+
+    &__visual {
+        width: toRem(225);
+        height: toRem(146);
+    }
+}
+
+@include min-screen(1280px) {
+    .listen {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: toRem(125);
+        padding: 0 calc((100% - 912px) / 2);
+    
+        &__title {
+            font-size: toRem(44);
+            text-align: left;
+            margin-bottom: 0;
+            width: auto;
+            white-space: nowrap;
+        }
+    
+        &__about {
+            font-size: toRem(19);
+            max-width: 100%;
+            margin-bottom: 0;
+        }
+    
+        &__visual {
+            display: none;
+        }
+    }
+}
